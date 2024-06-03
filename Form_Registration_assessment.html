@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Registration Form </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main-wrapper
+        {
+            width: 20%;
+            margin: 100px auto;
+            border: 5px solid #ededed;
+            border-top: 5px solid orange;
+            /* border: 5px solid black; */
+            font-family: sans-serif;
+            text-transform: capitalize;
+        }
+        h2{
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .input-wrapper
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .input-wrapper input
+        {
+            width: 80%;
+            padding: 10px 30px;
+            margin: 10px ;
+        }
+        .Equaility
+        {
+            display: flex;
+            align-items: center;
+            padding: 10px 10px 10px 40px;
+            column-gap: 10px;
+            /* padding-left: 0px; */
+            /* flex-direction: column; */
+        }
+        .country
+        {
+            display: flex;
+            justify-content: center;
+        }
+        select
+        {
+            padding: 10px 0px ;
+            width: 80%;
+            margin: 10px 0px;
+        }
+        .checkboxes
+        {
+            padding: 10px 15px;
+            display: flex;
+            align-content: center;
+            row-gap: 10px;
+            flex-direction: column;
+        }
+        .block
+        {
+            display: flex;
+            /* justify-content: center; */
+            margin-bottom: 10px;
+            align-items: center;
+            flex-direction: column;
+        }
+        button
+        {
+            padding: 10px 0px;
+            width: 80%;
+            background-color: orange;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            border: 0;
+            margin: 4px 0px;
+        }
+        i
+        {
+            position: absolute;
+            font-size: 20px;
+            left: 35px;
+        }
+        .fa-envelope
+        {
+            top: 87px;
+        }
+        #pwd1
+        {
+            top: 145px;
+            /* left: 35px; */
+        }
+        #pwd2
+        {
+            top: 205px;
+        }
+        #user1
+        {
+            top: 262px;
+        }
+        #user2
+        {
+            top: 322px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+
+        <div class="input-wrapper">
+            <h2>responsive Registration form</h2>
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email"  id="email" placeholder="Email" onblur="function_email(this,'spnid1')">
+            <span id='spnid1'></span>
+            <i class="fa-solid fa-lock" id="pwd1"></i>
+            <input type="password" id="password1" placeholder="Password" onblur="function_password(this,'spnid2')">
+            <span id="spnid2"></span>
+            <i class="fa-solid fa-lock" id="pwd2"></i>
+            <input type="password" id="password2" placeholder="Re-type Password" onblur="function_password(this,'spnid3')">
+            <span id="spnid3"></span>
+            
+            <i class="fa-solid fa-user" id="user1"></i>
+            <input type="text" placeholder="First Name" onblur="function_name(this,'spnid4')" id="username">
+            <span id="spnid4"></span>
+            <i class="fa-solid fa-user" id="user2"></i>
+            <input type="text" placeholder="Last Name" onblur="function_name(this,'spnid5')" id="lastname">
+            <span id="spnid5"></span>
+        </div>
+
+        <div class="Equaility">
+            <input type="radio" name="gender" id="male" checked>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" >
+            <label for="female">Female</label>
+        </div>
+        
+        <div class="country">
+            <select name="country-name" id="country-name" onchange="function_country(this)">
+                <option value="Select a country" id="opt1" >Select a country</option>
+                <option value="India" id="opt2">India</option>
+                <option value="Dubai" id="opt3">Dubai</option>
+                <option value="London" id="opt4">London</option>
+                <option value="pak" id="opt5">pak</option>
+            </select>
+        </div>
+    
+        <div class="checkboxes">
+            <div class="checkbox1">
+       <input type="checkbox" id="check1">
+       <label for="check1">i agree with  terms & conditions</label>
+       </div>
+       <div class="checkbox2">
+       <input type="checkbox" id="check2">
+       <label for="check2">i want to receive the newsletter</label>
+        </div>        
+    </div>
+
+    <div class="block">
+        <button id="submit" onclick="function_register()">
+            Register
+        </button>
+        <button onclick="function_show_pwd()">show-password</button>
+        </div>
+
+    
+
+    <!-- <script src="..//jQuery/jquery-3.7.1.min.js"></script> -->
+    
+    <script>
+
+        function function_register()
+        {
+           let a= document.getElementById('email').value;
+           let b= document.getElementById('password1').value;
+           let c= document.getElementById('password2').value;
+           let d= document.getElementById('username').value;
+           let e= document.getElementById('lastname').value;
+           let f=document.getElementById("country-name").value;
+
+            if (b==c)
+             {
+                 // console.log(a +  b + c + d + e);
+                 document.write(a+"<br>");
+                 document.write(b+"<br>");
+                 document.write(c+"<br>");
+                 document.write(d+"<br>");
+                 document.write(e+"<br>");
+                 document.write(f);
+                console.log("right");   
+            }
+            else
+            {
+                console.log("please right information");
+            }
+
+        }
+
+        function function_show_pwd()
+         {
+             let pwd=document.getElementById('password1');
+             let pwd2=document.getElementById('password2');
+
+          if (pwd.type=="password" && pwd2.type=="password")
+           {
+            console.log("show");
+            pwd.type='show'; 
+            pwd2.type='show';
+          }      
+          else
+          {
+            pwd.type="password"
+            pwd2.type="password"
+            console.log("hide");
+          }
+        }
+
+        function function_country(d)
+         {
+            console.log(d.value);
+
+            // console.log(opt1.value);
+            // console.log(opt1.value);
+
+        }
+
+        function function_email(s,b)
+        {
+            let email = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;   
+            if (email.test(s.value))
+             {
+                // document.getElementsByClassName(b).innerText="";
+                document.getElementById(b).innerHTML="";
+                    
+            }
+            else
+            {
+                // document.getElementsByClassName(b)[0].innerText="Wrong Email";
+                document.getElementById(b).innerHTML="Wrong Email";
+                    
+            }
+        }
+        function function_password(d,pwd)
+        {
+            let password= /^[a-zA-z0-9._-]{3,5}$/;
+            if (password.test(d.value))
+             {
+                document.getElementById(pwd).innerText="";    
+            }
+            else
+            {
+                document.getElementById(pwd).innerText="Wrong Password";    
+            }
+        }
+        function function_name(d,error) 
+        {
+            let name= /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/; 
+            if (name.test(d.value))
+             {
+                document.getElementById(error).innerText="";    
+            }   
+            else
+            {
+                document.getElementById(error).innerText="This is not right";    
+            }
+        }
+        
+        
+    </script>
+
+</body>
+</html>
